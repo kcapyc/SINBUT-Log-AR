@@ -1,0 +1,10 @@
+<h2>Журнал</h2>
+
+<% @posts.each do |post| %>
+	<hr />
+	<h3><a href="/details/<%= post.id %>">Запись #<%= post.id %></a></h3>
+	<blockquote>
+		<p><%= post.content %></p>
+		<footer class="cap"><%= post.author %>, <%= post.created_at %></footer>
+	</blockquote>
+<% end %>

@@ -1,0 +1,31 @@
+<h3>Запись #<%= @results.id %></h3>
+
+<form action="/newpost" method="POST" role="form">
+  <div class="form-group">
+		<blockquote>
+      <p><%= @results.content %></p>
+      <footer class="cap"><%= @results.author %>, <%= @results.created_at %></footer>
+    </blockquote>
+  </div>
+</form>
+<hr/>
+
+<% @comments.each do |comment| %>
+  <blockquote>
+	<p><%= comment.content %></p>
+	<footer class="cap"><%= comment.author %>, <%= comment.created_at %></footer>
+  </blockquote>
+	<hr/>
+<% end %>
+
+<form action="/details/<%= @results.id %>"  method="POST" role="form">  
+  <div class="form-group">
+	 <textarea name="comment[content]" type="text" class="form-control" rows="3" placeholder="Текст комментария"></textarea>
+  </div>
+  <div class="form-inline">
+    <div class="form-group">
+      <input name="comment[author]" type="text" class="form-control" value="Аноним" placeholder="Автор">
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить комментарий</button>
+  </div>
+</form>

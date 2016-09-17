@@ -1,0 +1,15 @@
+<h2>Новая запись</h2>
+
+<form action="/newpost" method="POST" role="form">
+
+  <div class="form-group">
+	<textarea name="post[content]" type="text" class="form-control" rows="6" placeholder="Введите текст"><%= @newpost.content %></textarea>
+  </div>
+  <div class="form-inline">
+	  <div class="form-group">
+	    <input name="post[author]" type="text" class="form-control" value="<%= @newpost.author %>" placeholder="Автор">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Опубликовать</button>
+  </div>
+
+</form>
